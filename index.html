@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GVO PREMIUM | Catálogo</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #111111;
+            --accent: #2563eb;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            --radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 1rem 1.2rem 1rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #111111;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: #2563eb;
+            margin-left: 4px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 1.35rem;
+            color: #111111;
+            cursor: pointer;
+            position: relative;
+            padding: 0.2rem;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -4px;
+            right: -6px;
+            background: #111111;
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 1rem auto 0 auto;
+            width: 100%;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 3rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 30px;
+            background: #f1f5f9;
+            font-size: 0.95rem;
+            color: #0f172a;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            outline: none;
+            background: #ffffff;
+            border-color: #cbd5e1;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        /* --- HERO BANNER (ACTUALIZADO CON MOTO DE LUJO DE ALTO RENDIMIENTO) --- */
+        .hero {
+            max-width: 632px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero-banner {
+            /* Fusión premium: Máscara de contraste cinematográfico + Imagen HD de Superbike exótica */
+            background-image: linear-gradient(165deg, rgba(15, 23, 42, 0.90) 40%, rgba(15, 23, 42, 0.50) 100%), 
+                              url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=1200&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center center;
+            border-radius: 20px;
+            padding: 2.8rem 2rem;
+            color: #ffffff;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .hero-tag {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            color: #ffffff;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            color: #e2e8f0;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-bottom: 2.2rem;
+            font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-btn {
+            background: #ffffff;
+            color: #111111;
+            padding: 0.9rem 2.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-btn:hover {
+            background: #f8fafc;
+            transform: translateY(-1px);
+        }
+
+        /* --- CONTENEDOR DE LA TIENDA --- */
+        .store-container {
+            max-width: 632px;
+            margin: 0 auto;
+            padding: 0 1rem 5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* --- CATEGORÍAS DESGLOSADAS VERTICALMENTE --- */
+        .filter-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.2rem;
+        }
+
+        .filter-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            letter-spacing: 0.5px;
+        }
+
+        .category-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column; 
+            gap: 0.5rem;
+            padding: 0;
+        }
+
+        .category-item {
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .category-item:hover, .category-item.active {
+            background: #ffffff;
+            border-color: var(--accent);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .category-count {
+            font-size: 0.75rem;
+            background: #e2e8f0;
+            padding: 0.15rem 0.5rem;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+        
+        .category-item.active .category-count {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        /* --- VISTA DE CATÁLOGO --- */
+        .catalog-view {
+            width: 100%;
+        }
+
+        .catalog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .catalog-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .product-img-wrapper {
+            width: 100%;
+            padding-top: 100%;
+            position: relative;
+            background: #f8fafc;
+            cursor: pointer;
+        }
+
+        .product-img-wrapper img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-cat {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .specs-list {
+            margin: 0.5rem 0 1rem 0;
+            padding-left: 1.2rem;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+        .specs-list li { margin-bottom: 0.4rem; }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .add-to-cart-btn, .view-options-btn {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 0.65rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-options-btn { background: var(--accent); }
+
+        /* --- MODAL INTERACTIVO --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            z-index: 300;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal-overlay.open { display: flex; }
+
+        .modal-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: none; border: none; font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .tire-option-box {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- CARRITO --- */
+        .cart-sidebar {
+            position: fixed;
+            top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-lg);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+        }
+        .cart-sidebar.open { right: 0; }
+        .cart-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); z-index: 150; display: none;
+        }
+        .cart-overlay.open { display: block; }
+        
+        .cart-header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .cart-items-container { flex-grow: 1; padding: 1.5rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; }
+        .cart-item { display: flex; gap: 1rem; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid #f1f5f9; }
+        .cart-item-img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+        .cart-footer { padding: 1.5rem; border-top: 1px solid var(--border); background: #f8fafc; }
+        
+        .checkout-btn {
+            width: 100%; background: #25d366; color: #ffffff; border: none; padding: 1rem;
+            border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer;
+            display: flex; justify-content: center; align-items: center; gap: 0.5rem;
+        }
+
+        /* --- FOOTER --- */
+        footer { background: #0f172a; color: #94a3b8; padding: 3rem 1rem 2rem 1rem; margin-top: 4rem; }
+        .footer-content { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+        .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #1e293b; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO SUPERIOR -->
+    <header>
+        <div class="header-top">
+            <div class="logo" onclick="filterCategory('all')">GvO <span>PREMIUM</span></div>
+            <div class="nav-actions">
+                <button class="nav-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="nav-btn" onclick="toggleCart()">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Buscar productos, marcas o categoría" oninput="handleSearch()">
+        </div>
+    </header>
+
+    <!-- BANNER CON EFECTO DE IMPACTO Y MOTO EXÓTICA DE FONDO -->
+    <section class="hero">
+        <div class="hero-banner">
+            <span class="hero-tag">Catálogo Exclusivo 2026</span>
+            <h1>GvO Tienda Automotriz</h1>
+            <p>Equipamiento premium, estabilidad garantizada y accesorios de alto rendimiento para tu vehículo con entregas directamente en La Habana.</p>
+            <a href="#store" class="hero-btn">Explorar Catálogo <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- TIENDA Y CATEGORÍAS -->
+    <main class="store-container" id="store">
+        <aside class="sidebar">
+            <div class="filter-section">
+                <h2 class="filter-title">Categorías</h2>
+                <ul class="category-list" id="categoryList"></ul>
+            </div>
+        </aside>
+
+        <section class="catalog-view">
+            <div class="catalog-header">
+                <h2 class="catalog-title" id="currentCategoryTitle">Todos los Productos</h2>
+                <span class="text-muted" id="productCountText" style="font-size: 0.9rem;"></span>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+        </section>
+    </main>
+
+    <!-- VENTANA INTERNA PARA LAS GOMAS -->
+    <div class="modal-overlay" id="tireModal" onclick="closeTireModal(event)">
+        <div class="modal-card">
+            <button class="close-modal" onclick="document.getElementById('tireModal').classList.remove('open')">&times;</button>
+            <h2 style="margin-bottom: 0.5rem; font-weight: 700;"><i class="fa-solid fa-motorcycle" style="color: var(--accent);"></i> Medidas Disponibles</h2>
+            <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Selecciona la medida que requiere tu moto. Todas cuentan con una banda de rodamiento de alta tracción y lonas reforzadas.</p>
+            <div id="tireOptionsList"></div>
+        </div>
+    </div>
+
+    <!-- CARRO LATERAL -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Tu Pedido</h2>
+            <button style="background:none; border:none; font-size:1.5rem; cursor:pointer;" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items-container" id="cartItemsContainer"></div>
+        <div class="cart-footer">
+            <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.1rem; margin-bottom:1.5rem;">
+                <span>Total Estimado:</span>
+                <span id="cartTotalValue">$0.00 USD</span>
+            </div>
+            <button class="checkout-btn" onclick="sendWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3 style="color:#fff; margin-bottom:0.5rem;">GvO Comercial</h3>
+                <p>Garantía de arranque, respaldo eléctrico para el hogar y accesorios estables.</p>
+            </div>
+            <div>
+                <p><i class="fa-solid fa-location-dot"></i> La Habana, Cuba</p>
+                <p style="margin-top:0.3rem;"><i class="fa-solid fa-phone"></i> +53 58870159</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 GvO. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const products = [
+            {
+                id: "bat-180",
+                name: "Batería T.Y.L 12V 180Ah | Certificación E.U.",
+                category: "baterias",
+                price: 175.00,
+                img: "Static/Baterías.jpg",
+                desc: "Unidad sellada de alta densidad (87 libras). Diseñada originalmente para uso pesado y adaptada de manera óptima para el contexto residencial cubano.",
+                specs: [
+                    "<strong>Respaldo de Energía Doméstico:</strong> Conectada a inversores alimenta ventiladores, luces, routers y TV durante los cortes eléctricos.",
+                    "<strong>Almacenamiento Solar:</strong> Ideal como banco económico para pequeños sistemas de paneles solares.",
+                    "<strong>Uso Automotor Pesado:</strong> Perfecta para camiones (Kamaz, Zil, Maz), autobuses de transporte (Yutong) y maquinaria agrícola."
+                ]
+            },
+            {
+                id: "gomas-moto",
+                name: "Gomas / Neumáticos de Moto Premium",
+                category: "neumaticos",
+                price: 22.00,
+                img: "Static/Neumáticos.jpg",
+                desc: "Neumáticos reforzados multi-lona con excelente agarre urbano. Diseñados para resistir el pavimento caliente y baches imprevistos, asegurando una conducción estable.",
+                isTireSelector: true
+            },
+            {
+                id: "cargador-car",
+                name: "Cargador de Teléfonos para Coche Multi-Puerto",
+                category: "accesorios",
+                price: 8.00,
+                img: "Static/Cargador de Coche.jpg",
+                desc: "Cargador premium para el mechero del vehículo con puertos USB rápidos y Type-C. Incorpora una pantalla LED con voltímetro para monitorizar la salud eléctrica del coche."
+            }
+        ];
+
+        const tireSizes = [
+            { size: "2.50 - 16", desc: "Ideal para el eje delantero o motos ligeras de ciudad." },
+            { size: "2.75 - 16", desc: "Excelente para el eje trasero, aportando mayor tracción." },
+            { size: "2.75 - 17", desc: "Medida estándar para motocicletas de trabajo intermedio." },
+            { size: "2.50 - 18", desc: "Perfil alto clásico. Mayor confort en vías irregulares." },
+            { size: "2.75 - 18", desc: "Máxima robustez y capacidad de carga en pavimento deteriorado." }
+        ];
+
+        const categories = { all: "Todos", baterias: "Baterías", neumaticos: "Gomas", accesorios: "Cargadores" };
+        let cart = [];
+        let currentCategory = 'all';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategories();
+            renderProducts(products);
+            buildTireModalOptions();
+        });
+
+        function renderCategories() {
+            const container = document.getElementById('categoryList');
+            container.innerHTML = '';
+            Object.keys(categories).forEach(key => {
+                const count = key === 'all' ? products.length : products.filter(p => p.category === key).length;
+                const li = document.createElement('li');
+                li.className = `category-item ${currentCategory === key ? 'active' : ''}`;
+                li.onclick = () => { currentCategory = key; renderCategories(); filterProducts(); };
+                li.innerHTML = `<span>${categories[key]}</span><span class="category-count">${count}</span>`;
+                container.appendChild(li);
+            });
+        }
+
+        function renderProducts(data) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            data.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                let specsHTML = p.specs ? `<ul class="specs-list">${p.specs.map(s => `<li>${s}</li>`).join('')}</ul>` : '';
+                let actionButton = p.isTireSelector ? 
+                    `<button class="view-options-btn" onclick="openTireModal()"><i class="fa-solid fa-layer-group"></i> Ver Medidas</button>` : 
+                    `<button class="add-to-cart-btn" onclick="addToCart('${p.id}')"><i class="fa-solid fa-plus"></i> Agregar</button>`;
+                let imgAction = p.isTireSelector ? `onclick="openTireModal()"` : `onclick="addToCart('${p.id}')"`;
+
+                card.innerHTML = `
+                    <div class="product-img-wrapper" ${imgAction}>
+                        <img src="${p.img}" alt="${p.name}">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-cat">${categories[p.category]}</span>
+                        <h3 class="product-name">${p.name}</h3>
+                        <p class="product-desc">${p.desc}</p>
+                        ${specsHTML}
+                        <div class="product-footer">
+                            <span class="product-price">$${p.price.toFixed(2)} USD</span>
+                            ${actionButton}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            document.getElementById('productCountText').innerText = `Mostrando ${data.length} productos`;
+        }
+
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => {
+                const matchCat = currentCategory === 'all' || p.category === currentCategory;
+                const matchQuery = p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query);
+                return matchCat && matchQuery;
+            });
+            renderProducts(filtered);
+            document.getElementById('currentCategoryTitle').innerText = currentCategory === 'all' ? "Todos los Productos" : `Categoría: ${categories[currentCategory]}`;
+        }
+
+        function handleSearch() { filterProducts(); }
+        function openTireModal() { document.getElementById('tireModal').classList.add('open'); }
+        function closeTireModal(e) { if(e.target.id === 'tireModal') document.getElementById('tireModal').classList.remove('open'); }
+
+        function buildTireModalOptions() {
+            const list = document.getElementById('tireOptionsList');
+            list.innerHTML = '';
+            tireSizes.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'tire-option-box';
+                div.innerHTML = `
+                    <div>
+                        <strong style="font-size:1rem; color:var(--primary);">${item.size}</strong>
+                        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">${item.desc}</p>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addTireSizeToCart('${item.size}')">Elegir</button>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        function addTireSizeToCart(size) {
+            const baseTire = products.find(p => p.id === 'gomas-moto');
+            const uniqueId = `goma-${size.replace(/\s+/g, '')}`;
+            const existing = cart.find(item => item.id === uniqueId);
+            if(existing) { existing.qty++; } 
+            else { cart.push({ id: uniqueId, name: `Goma Moto (${size})`, price: baseTire.price, img: baseTire.img, qty: 1 }); }
+            document.getElementById('tireModal').classList.remove('open');
+            updateCartUI();
+            toggleCart();
+        }
+
+        function addToCart(id) {
+            const p = products.find(prod => prod.id === id);
+            const existing = cart.find(item => item.id === id);
+            if(existing) { existing.qty++; } 
+            else { cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, qty: 1 }); }
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartSidebar').classList.toggle('open');
+            document.getElementById('cartOverlay').classList.toggle('open');
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if(item) {
+                item.qty += delta;
+                if(item.qty <= 0) cart = cart.filter(i => i.id !== id);
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const badge = document.getElementById('cartBadge');
+            const totalText = document.getElementById('cartTotalValue');
+            container.innerHTML = '';
+            let total = 0, itemsCount = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                itemsCount += item.qty;
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <img src="${item.img}" class="cart-item-img">
+                    <div style="flex-grow:1;">
+                        <h4 style="font-size:0.9rem; font-weight:600;">${item.name}</h4>
+                        <span style="font-size:0.85rem; font-weight:700;">$${(item.price * item.qty).toFixed(2)} USD</span>
+                        <div style="display:flex; gap:0.5rem; align-items:center; margin-top:0.25rem;">
+                            <button style="width:20px; height:20px; border:1px solid #ccc; background:#fff; cursor:pointer;" onclick="changeQty('${item.id}', -1)">-</button>
+                            <span style="font-size:0.85rem;">${item.qty}</span>
+                            <button style="width:20px; height:20px; border:1px solid #ccc; background:#fff; cursor:pointer;" onclick="changeQty('${item.id}', 1)">+</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            badge.innerText = itemsCount;
+            totalText.innerText = `$${total.toFixed(2)} USD`;
+        }
+
+        function sendWhatsApp() {
+            if(cart.length === 0) return;
+            let text = "Hola GvO Automotriz, deseo encargar los siguientes productos:\n\n";
+            cart.forEach(i => { text += `• ${i.qty}x ${i.name} ($${(i.price * i.qty).toFixed(2)} USD)\n`; });
+            const total = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+            text += `\n*Total a pagar: $${total.toFixed(2)} USD*\n\nCoordinar entrega para La Habana.`;
+            window.open(`https://wa.me/5358870159?text=${encodeURIComponent(text)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
