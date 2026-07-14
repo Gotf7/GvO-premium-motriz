@@ -380,18 +380,24 @@
             color: var(--primary);
         }
 
+        /* ESTILO DEL BOTÓN DE AGREGAR */
         .add-to-cart-btn, .view-options-btn {
             background: var(--primary);
             color: #ffffff;
             border: none;
-            padding: 0.65rem 1.2rem;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 0.85rem;
+            padding: 0.75rem 1.4rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .add-to-cart-btn:active, .view-options-btn:active {
+            transform: scale(0.95);
         }
 
         .view-options-btn { background: var(--accent); }
@@ -439,34 +445,100 @@
             align-items: center;
         }
 
-        /* --- CARRITO --- */
+        /* --- CARRITO (IGUAL A LA SEGUNDA IMAGEN) --- */
         .cart-sidebar {
             position: fixed;
-            top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%;
+            top: 0; 
+            right: -100%; 
+            width: 100%; 
+            max-width: 450px; 
+            height: 100%;
             background: var(--bg-card);
             box-shadow: var(--shadow-lg);
             z-index: 200;
             display: flex;
             flex-direction: column;
-            transition: all 0.4s ease;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .cart-sidebar.open { right: 0; }
+        
         .cart-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4); z-index: 150; display: none;
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: rgba(0,0,0,0.4); 
+            backdrop-filter: blur(2px);
+            z-index: 150; 
+            display: none;
         }
         .cart-overlay.open { display: block; }
         
-        .cart-header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .cart-items-container { flex-grow: 1; padding: 1.5rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1.25rem; }
-        .cart-item { display: flex; gap: 1rem; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid #f1f5f9; }
-        .cart-item-img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
-        .cart-footer { padding: 1.5rem; border-top: 1px solid var(--border); background: #f8fafc; }
+        .cart-header { 
+            padding: 1.5rem; 
+            border-bottom: 1px solid var(--border); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .cart-header h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .cart-items-container { 
+            flex-grow: 1; 
+            padding: 1.5rem; 
+            overflow-y: auto; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1.5rem; 
+        }
+
+        .cart-item { 
+            display: flex; 
+            gap: 1.2rem; 
+            align-items: center; 
+            padding-bottom: 1.2rem; 
+            border-bottom: 1px solid #f1f5f9; 
+        }
+
+        .cart-item-img { 
+            width: 70px; 
+            height: 70px; 
+            border-radius: 12px; 
+            object-fit: cover; 
+            background: #f1f5f9;
+        }
+        
+        .cart-footer { 
+            padding: 1.5rem; 
+            border-top: 1px solid var(--border); 
+            background: #ffffff; 
+        }
         
         .checkout-btn {
-            width: 100%; background: #25d366; color: #ffffff; border: none; padding: 1rem;
-            border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer;
-            display: flex; justify-content: center; align-items: center; gap: 0.5rem;
+            width: 100%; 
+            background: #25d366; 
+            color: #ffffff; 
+            border: none; 
+            padding: 1.1rem;
+            border-radius: 14px; 
+            font-size: 1.05rem; 
+            font-weight: 700; 
+            cursor: pointer;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 0.6rem;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:active {
+            transform: scale(0.97);
         }
 
         /* --- FOOTER --- */
@@ -529,21 +601,21 @@
         <div class="modal-card">
             <button class="close-modal" onclick="document.getElementById('tireModal').classList.remove('open')">&times;</button>
             <h2 style="margin-bottom: 0.5rem; font-weight: 700;"><i class="fa-solid fa-motorcycle" style="color: var(--accent);"></i> Medidas Disponibles</h2>
-            <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Selecciona la medida que requiere tu moto. Todas cuentan con una banda de rodamiento de alta tracción y lonas reforzadas.</p>
+            <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Selecciona la medida que requiere tu moto. Todas cuentan con una banda de rodamiento de alta tracción y lonas de alta resistencia.</p>
             <div id="tireOptionsList"></div>
         </div>
     </div>
 
-    <!-- CARRO LATERAL -->
+    <!-- CARRO LATERAL (PEDIDO DESPLEGABLE) -->
     <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
             <h2>Tu Pedido</h2>
-            <button style="background:none; border:none; font-size:1.5rem; cursor:pointer;" onclick="toggleCart()">&times;</button>
+            <button style="background:none; border:none; font-size:1.8rem; cursor:pointer; color:#0f172a;" onclick="toggleCart()">&times;</button>
         </div>
         <div class="cart-items-container" id="cartItemsContainer"></div>
         <div class="cart-footer">
-            <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.1rem; margin-bottom:1.5rem;">
+            <div style="display:flex; justify-content:space-between; font-weight:700; font-size:1.2rem; margin-bottom:1.5rem; color:#0f172a;">
                 <span>Total Estimado:</span>
                 <span id="cartTotalValue">$0.00 USD</span>
             </div>
@@ -643,9 +715,12 @@
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 let specsHTML = p.specs ? `<ul class="specs-list">${p.specs.map(s => `<li>${s}</li>`).join('')}</ul>` : '';
+                
+                // Botón dinámico según el producto
                 let actionButton = p.isTireSelector ? 
                     `<button class="view-options-btn" onclick="openTireModal()"><i class="fa-solid fa-layer-group"></i> Ver Medidas</button>` : 
                     `<button class="add-to-cart-btn" onclick="addToCart('${p.id}')"><i class="fa-solid fa-plus"></i> Agregar</button>`;
+                
                 let imgAction = p.isTireSelector ? `onclick="openTireModal()"` : `onclick="addToCart('${p.id}')"`;
 
                 card.innerHTML = `
@@ -700,23 +775,39 @@
             });
         }
 
+        // AGREGAR AL CARRITO (Abre inmediatamente el carrito de la imagen 2)
+        function addToCart(id) {
+            const p = products.find(prod => prod.id === id);
+            const existing = cart.find(item => item.id === id);
+            if(existing) { 
+                existing.qty++; 
+            } else { 
+                cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, qty: 1 }); 
+            }
+            
+            updateCartUI();
+            openCart(); // Fuerza la apertura visual inmediata
+        }
+
         function addTireSizeToCart(size) {
             const baseTire = products.find(p => p.id === 'gomas-moto');
             const uniqueId = `goma-${size.replace(/\s+/g, '')}`;
             const existing = cart.find(item => item.id === uniqueId);
-            if(existing) { existing.qty++; } 
-            else { cart.push({ id: uniqueId, name: `Goma Moto (${size})`, price: baseTire.price, img: baseTire.img, qty: 1 }); }
+            if(existing) { 
+                existing.qty++; 
+            } else { 
+                cart.push({ id: uniqueId, name: `Goma Moto (${size})`, price: baseTire.price, img: baseTire.img, qty: 1 }); 
+            }
+            
             document.getElementById('tireModal').classList.remove('open');
             updateCartUI();
-            toggleCart();
+            openCart(); // Fuerza la apertura visual inmediata
         }
 
-        function addToCart(id) {
-            const p = products.find(prod => prod.id === id);
-            const existing = cart.find(item => item.id === id);
-            if(existing) { existing.qty++; } 
-            else { cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, qty: 1 }); }
-            updateCartUI();
+        // FUNCIONES DE CONTROL DE ESTADO DE APERTURA DEL CARRITO
+        function openCart() {
+            document.getElementById('cartSidebar').classList.add('open');
+            document.getElementById('cartOverlay').classList.add('open');
         }
 
         function toggleCart() {
@@ -748,12 +839,12 @@
                 div.innerHTML = `
                     <img src="${item.img}" class="cart-item-img">
                     <div style="flex-grow:1;">
-                        <h4 style="font-size:0.9rem; font-weight:600;">${item.name}</h4>
-                        <span style="font-size:0.85rem; font-weight:700;">$${(item.price * item.qty).toFixed(2)} USD</span>
-                        <div style="display:flex; gap:0.5rem; align-items:center; margin-top:0.25rem;">
-                            <button style="width:20px; height:20px; border:1px solid #ccc; background:#fff; cursor:pointer;" onclick="changeQty('${item.id}', -1)">-</button>
-                            <span style="font-size:0.85rem;">${item.qty}</span>
-                            <button style="width:20px; height:20px; border:1px solid #ccc; background:#fff; cursor:pointer;" onclick="changeQty('${item.id}', 1)">+</button>
+                        <h4 style="font-size:0.95rem; font-weight:700; color:#0f172a; margin-bottom:0.2rem;">${item.name}</h4>
+                        <span style="font-size:0.95rem; font-weight:700; color:#0f172a;">$${item.price.toFixed(2)} USD</span>
+                        <div style="display:flex; gap:0.5rem; align-items:center; margin-top:0.5rem;">
+                            <button style="width:28px; height:28px; border:1px solid #cbd5e1; background:#fff; cursor:pointer; font-weight:700; border-radius:6px; display:flex; align-items:center; justify-content:center;" onclick="changeQty('${item.id}', -1)">-</button>
+                            <span style="font-size:0.95rem; font-weight:700; min-width: 20px; text-align: center; color:#0f172a;">${item.qty}</span>
+                            <button style="width:28px; height:28px; border:1px solid #cbd5e1; background:#fff; cursor:pointer; font-weight:700; border-radius:6px; display:flex; align-items:center; justify-content:center;" onclick="changeQty('${item.id}', 1)">+</button>
                         </div>
                     </div>
                 `;
